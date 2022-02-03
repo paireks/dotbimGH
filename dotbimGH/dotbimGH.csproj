@@ -68,6 +68,14 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="BimElementSet.cs" />
+        <Compile Include="Components\CreateBimElementSetGh.cs" />
+        <Compile Include="Components\CreateBimFileGh.cs" />
+        <Compile Include="Components\CreateGuidGh.cs" />
+        <Compile Include="Components\CreateInfoGh.cs" />
+        <Compile Include="Components\DeconstructBimElementGh.cs" />
+        <Compile Include="Components\DeconstructBimFileGh.cs" />
+        <Compile Include="Components\DeconstructInfoGh.cs" />
+        <Compile Include="DotbimGHInfo.cs" />
         <Compile Include="Face.cs" />
         <Compile Include="Tools.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
