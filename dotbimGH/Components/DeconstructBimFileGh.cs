@@ -7,7 +7,7 @@ namespace dotbimGH.Components
     public class DeconstructBimFileGh : GH_Component
     {
         public DeconstructBimFileGh()
-            : base("Deconstruct BIM File", "Deconstruct BIM File", "Deconstructs BIM File", "BIM", "Read File")
+            : base("Deconstruct BIM File", "Deconstruct BIM File", "Deconstructs BIM File", "dotbim", "Read File")
         {
         }
 

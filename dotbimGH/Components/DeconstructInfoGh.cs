@@ -8,7 +8,7 @@ namespace dotbimGH.Components
     public class DeconstructInfoGh : GH_Component
     {
         public DeconstructInfoGh()
-            : base("Deconstruct Info", "Deconstruct Info", "Deconstructs Info", "BIM", "Read File")
+            : base("Deconstruct Info", "Deconstruct Info", "Deconstructs Info", "dotbim", "Read File")
         {
         }
 

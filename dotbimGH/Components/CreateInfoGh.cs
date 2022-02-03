@@ -7,7 +7,7 @@ namespace dotbimGH.Components
     public class CreateInfoGh : GH_Component
     {
         public CreateInfoGh()
-            : base("Create Info", "Create Info", "Create Info", "BIM", "Create File")
+            : base("Create Info", "Create Info", "Create Info", "dotbim", "Create File")
         {
         }
 

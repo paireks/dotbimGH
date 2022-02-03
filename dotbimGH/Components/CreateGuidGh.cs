@@ -7,7 +7,7 @@ namespace dotbimGH.Components
     public class CreateGuidGh : GH_Component
     {
         public CreateGuidGh()
-            : base("Create Guid", "Create Guid", "Create Guid", "BIM", "Create File")
+            : base("Create Guid", "Create Guid", "Create Guid", "dotbim", "Create File")
         {
         }
 

@@ -75,6 +75,7 @@
         <Compile Include="Components\DeconstructBimElementGh.cs" />
         <Compile Include="Components\DeconstructBimFileGh.cs" />
         <Compile Include="Components\DeconstructInfoGh.cs" />
+        <Compile Include="Components\ReadBimFileGh.cs" />
         <Compile Include="DotbimGHInfo.cs" />
         <Compile Include="Face.cs" />
         <Compile Include="Tools.cs" />
@@ -101,5 +102,7 @@
     <Target Name="AfterBuild">
     </Target>
     -->
-
+    <PropertyGroup>
+        <PostBuildEvent>Copy "$(TargetPath)" "C:\Users\code-structures\AppData\Roaming\Grasshopper\Libraries\dotbimGH\dotbimGH.gha"</PostBuildEvent>
+    </PropertyGroup>
 </Project>
