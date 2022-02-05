@@ -8,7 +8,7 @@ namespace dotbimGH.Components
     public class CreateBimFileGh : GH_Component
     {
         public CreateBimFileGh()
-            : base("Create BIM File", "Create BIM File", "Creates BIM File", "dotbim", "Create File")
+            : base("Create File", "Create File", "Creates .bim file", "dotbim", "Create File")
         {
         }
 

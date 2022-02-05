@@ -7,21 +7,21 @@ namespace dotbimGH.Components
     public class DeconstructBimFileGh : GH_Component
     {
         public DeconstructBimFileGh()
-            : base("Deconstruct BIM File", "Deconstruct BIM File", "Deconstructs BIM File", "dotbim", "Read File")
+            : base("Deconstruct File", "Deconstruct File", "Deconstructs .bim file", "dotbim", "Read File")
         {
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("BIM File", "BIM File", "BIM File read", GH_ParamAccess.item);
+            pManager.AddGenericParameter("File", "File", "File read", GH_ParamAccess.item);
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddTextParameter("Schema Version", "Schema Version", "Version of schema", GH_ParamAccess.item);
-            pManager.AddGenericParameter("BIM Info", "BIM Info", "BIM Info deconstructed about file", GH_ParamAccess.item);
-            pManager.AddGenericParameter("BIM Elements Geometry", "BIM Elements Geometry", "BIM Elements Geometry deconstructed", GH_ParamAccess.list);
-            pManager.AddGenericParameter("BIM Elements Data", "BIM Elements Data", "BIM Elements Data deconstructed", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Info", "Info", "Info deconstructed about file", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Elements Geometry", "Elements Geometry", "Elements Geometry deconstructed", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Elements Data", "Elements Data", "Elements Data deconstructed", GH_ParamAccess.list);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)

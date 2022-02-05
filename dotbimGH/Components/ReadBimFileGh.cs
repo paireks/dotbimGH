@@ -7,7 +7,7 @@ namespace dotbimGH.Components
     public class ReadBimFileGh : GH_Component
     {
         public ReadBimFileGh()
-            : base("Read BIM File", "Read BIM File", "Reads BIM File", "dotbim", "Read File")
+            : base("Read File", "Read File", "Reads .bim file", "dotbim", "Read File")
         {
         }
 
@@ -18,7 +18,7 @@ namespace dotbimGH.Components
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("BIM File", "BIM File", "BIM File read", GH_ParamAccess.item);
+            pManager.AddGenericParameter("File", "File", "File read", GH_ParamAccess.item);
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
