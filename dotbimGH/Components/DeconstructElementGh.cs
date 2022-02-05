@@ -4,9 +4,9 @@ using Grasshopper.Kernel;
 
 namespace dotbimGH.Components
 {
-    public class DeconstructBimElementGh : GH_Component
+    public class DeconstructElementGh : GH_Component
     {
-        public DeconstructBimElementGh()
+        public DeconstructElementGh()
             : base("Deconstruct Element", "Deconstruct Element", "Deconstructs Element", "dotbim", "Read File")
         {
         }
@@ -37,7 +37,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return null;
+                return Properties.Resources.DeconstructElementsSet;
             }
         }
 

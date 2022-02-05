@@ -72,8 +72,8 @@
         <Compile Include="Components\CreateFileGh.cs" />
         <Compile Include="Components\CreateGuidGh.cs" />
         <Compile Include="Components\CreateInfoGh.cs" />
-        <Compile Include="Components\DeconstructBimElementGh.cs" />
-        <Compile Include="Components\DeconstructBimFileGh.cs" />
+        <Compile Include="Components\DeconstructElementGh.cs" />
+        <Compile Include="Components\DeconstructFileGh.cs" />
         <Compile Include="Components\DeconstructInfoGh.cs" />
         <Compile Include="Components\ReadFileGh.cs" />
         <Compile Include="DotbimGHInfo.cs" />
@@ -101,6 +101,9 @@
       <Content Include="Resources\CreateFile.png" />
       <Content Include="Resources\CreateGuid.png" />
       <Content Include="Resources\CreateInfo.png" />
+      <Content Include="Resources\DeconstructElementsSet.png" />
+      <Content Include="Resources\DeconstructFile.png" />
+      <Content Include="Resources\DeconstructInfo.png" />
       <Content Include="Resources\ReadFile.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
