@@ -6,9 +6,9 @@ using Rhino.Geometry;
 
 namespace dotbimGH.Components
 {
-    public class CreateBimElementsGh : GH_Component
+    public class CreateElementsGh : GH_Component
     {
-        public CreateBimElementsGh()
+        public CreateElementsGh()
             : base("Create Elements Set", "Create Elements Set", "Create Elements Set", "dotbim", "Create File")
         {
         }
@@ -55,7 +55,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return null;
+                return Properties.Resources.CreateElementsSet;
             }
         }
 

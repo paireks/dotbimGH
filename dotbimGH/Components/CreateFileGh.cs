@@ -5,9 +5,9 @@ using Grasshopper.Kernel;
 
 namespace dotbimGH.Components
 {
-    public class CreateBimFileGh : GH_Component
+    public class CreateFileGh : GH_Component
     {
-        public CreateBimFileGh()
+        public CreateFileGh()
             : base("Create File", "Create File", "Creates .bim file", "dotbim", "Create File")
         {
         }
@@ -42,7 +42,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return null;
+                return Properties.Resources.CreateFile;
             }
         }
 

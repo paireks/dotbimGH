@@ -4,9 +4,9 @@ using Grasshopper.Kernel;
 
 namespace dotbimGH.Components
 {
-    public class ReadBimFileGh : GH_Component
+    public class ReadFileGh : GH_Component
     {
-        public ReadBimFileGh()
+        public ReadFileGh()
             : base("Read File", "Read File", "Reads .bim file", "dotbim", "Read File")
         {
         }
@@ -33,7 +33,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return null;
+                return Properties.Resources.ReadFile;
             }
         }
 

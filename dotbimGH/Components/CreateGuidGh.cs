@@ -41,7 +41,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return null;
+                return Properties.Resources.CreateGuid;
             }
         }
 
