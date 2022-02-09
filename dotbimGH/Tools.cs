@@ -11,56 +11,15 @@ namespace dotbimGH
     {
         private static Mesh CreateRhinoMeshFromBimMesh(dotbim.Mesh bimMesh)
         {
-            List<Vertex> vertices = new List<Vertex>();
-            int counter = 0;
+            Mesh mesh = new Mesh();
             for (int i = 0; i < bimMesh.Coordinates.Count; i+=3)
             {
-                Vertex vertex = new Vertex
-                {
-                    Id = counter,
-                    X = bimMesh.Coordinates[i],
-                    Y = bimMesh.Coordinates[i+1],
-                    Z = bimMesh.Coordinates[i+2]
-                };
-                
-                vertices.Add(vertex);
-                counter += 1;
+                mesh.Vertices.Add(bimMesh.Coordinates[i], bimMesh.Coordinates[i+1], bimMesh.Coordinates[i+2]);
             }
-            int numberOfVertices = vertices.Count;
-            int[] bimVertexIds = new int[numberOfVertices];
-            for (int i = 0; i < numberOfVertices; i++)
-            {
-                bimVertexIds[i] = vertices[i].Id;
-            }
-
             
-            List<Face> faces = new List<Face>();
             for (int i = 0; i < bimMesh.Indices.Count; i+=3)
             {
-                Face face = new Face
-                {
-                    Id1 = bimMesh.Indices[i],
-                    Id2 = bimMesh.Indices[i+1],
-                    Id3 = bimMesh.Indices[i+2]
-                };
-                
-                faces.Add(face);
-            }
-            
-            
-            Mesh mesh = new Mesh();
-            for (int i = 0; i < numberOfVertices; i++)
-            {
-                var currentVertex = vertices[i];
-                mesh.Vertices.Add(currentVertex.X, currentVertex.Y, currentVertex.Z);
-            }
-            
-            foreach (var currentFace in faces)
-            {
-                var rhinoId1 = GetRhinoVertexId(currentFace.Id1, bimVertexIds);
-                var rhinoId2 = GetRhinoVertexId(currentFace.Id2, bimVertexIds);
-                var rhinoId3 = GetRhinoVertexId(currentFace.Id3, bimVertexIds);
-                mesh.Faces.AddFace(rhinoId1, rhinoId2, rhinoId3);
+                mesh.Faces.AddFace(bimMesh.Indices[i], bimMesh.Indices[i+1], bimMesh.Indices[i+2]);
             }
 
             mesh.Normals.ComputeNormals();
@@ -73,11 +32,6 @@ namespace dotbimGH
         {
             System.Drawing.Color color = System.Drawing.Color.FromArgb(bimColor.A, bimColor.R, bimColor.G, bimColor.B);
             return color;
-        }
-
-        private static int GetRhinoVertexId(int bimVertexId, int[] bimVertexIds)
-        {
-            return Array.IndexOf(bimVertexIds, bimVertexId);
         }
 
         private static List<double> GetBimVerticesCoordinatesFromRhinoMesh(Mesh rhinoMesh)
@@ -197,6 +151,15 @@ namespace dotbimGH
             return new Rotation{Qx = quaternion.B, Qy = quaternion.C, Qz = quaternion.D, Qw = quaternion.A};
         }
 
+        private static void IsQuaternionAccepted(Quaternion quaternion)
+        {
+            double tolerance = 0.001;
+            if (quaternion.A-tolerance <= 0 && quaternion.B-tolerance <= 0 && quaternion.C-tolerance <= 0 && quaternion.D-tolerance <= 0)
+            {
+                throw new ArgumentException("Quaternion with all values as 0 are not supported.");
+            }
+        }
+
         public static List<Mesh> ConvertBimMeshesAndElementsIntoRhinoMeshes(List<dotbim.Mesh> bimMeshes, List<Element> bimElements)
         {
             List<Mesh> meshes = new List<Mesh>();
@@ -208,6 +171,7 @@ namespace dotbimGH
                 
                 Transform moveTransform = Transform.Translation(bimElement.Vector.X, bimElement.Vector.Y, bimElement.Vector.Z);
                 Quaternion quaternion = new Quaternion(bimElement.Rotation.Qw, bimElement.Rotation.Qx, bimElement.Rotation.Qy, bimElement.Rotation.Qz);
+                IsQuaternionAccepted(quaternion);
                 quaternion.GetRotation(out var insertPlane);
                 Transform rotationTransform = Transform.PlaneToPlane(Plane.WorldXY, insertPlane);
                 meshReferenced.Transform(rotationTransform);
