@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using dotbim;
+using dotbimGH.Interfaces;
 using Rhino.Geometry;
 using Mesh = Rhino.Geometry.Mesh;
 
@@ -96,14 +97,15 @@ namespace dotbimGH
             return bimMesh;
         }
 
-        public static File CreateFile(List<BimElementSet> bimElementSets, Dictionary<string, string> info)
+        public static File CreateFile(List<IElementSetConvertable> elementSetConvertables, Dictionary<string, string> info)
         {
             List<dotbim.Mesh> meshes = new List<dotbim.Mesh>();
             List<Element> elements = new List<Element>();
 
             int currentMeshId = 0;
-            foreach (var bimElementSet in bimElementSets)
+            foreach (var elementSetConvertable in elementSetConvertables)
             {
+                BimElementSet bimElementSet = elementSetConvertable.ToElementSet();
                 meshes.Add(CreateBimMeshFromRhinoMesh(bimElementSet.Mesh, currentMeshId));
                 for (int i = 0; i < bimElementSet.InsertPlanes.Count; i++)
                 {

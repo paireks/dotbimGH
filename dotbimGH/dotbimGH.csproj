@@ -32,16 +32,20 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Compile Include="BimElement.cs" />
         <Compile Include="BimElementSet.cs" />
+        <Compile Include="Components\CreateElementGh.cs" />
         <Compile Include="Components\CreateElementSetGh.cs" />
         <Compile Include="Components\CreateFileGh.cs" />
         <Compile Include="Components\CreateGuidGh.cs" />
         <Compile Include="Components\CreateInfoGh.cs" />
+        <Compile Include="Components\CreateSimpleElementGh.cs" />
         <Compile Include="Components\DeconstructElementGh.cs" />
         <Compile Include="Components\DeconstructFileGh.cs" />
         <Compile Include="Components\DeconstructInfoGh.cs" />
         <Compile Include="Components\ReadFileGh.cs" />
         <Compile Include="DotbimGHInfo.cs" />
+        <Compile Include="Interfaces\IElementSetConvertable.cs" />
         <Compile Include="Properties\Resources.Designer.cs">
           <DesignTime>True</DesignTime>
           <AutoGen>True</AutoGen>

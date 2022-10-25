@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using dotbimGH.Interfaces;
 using Rhino.Geometry;
 using Mesh = Rhino.Geometry.Mesh;
 
 namespace dotbimGH
 {
-    public class BimElementSet
+    public class BimElementSet : IElementSetConvertable
     {
 
         public BimElementSet(Mesh mesh, List<Plane> insertPlanes, List<string> guids,
@@ -17,6 +18,11 @@ namespace dotbimGH
             Colors = colors;
             Infos = infos;
             PreviewMeshes = CreatePreviewMeshes();
+        }
+        
+        public BimElementSet ToElementSet()
+        {
+            return this;
         }
         
         private List<Mesh> CreatePreviewMeshes()
