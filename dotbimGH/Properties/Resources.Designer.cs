@@ -63,6 +63,16 @@ namespace dotbimGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CreateElement {
+            get {
+                object obj = ResourceManager.GetObject("CreateElement", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CreateElementsSet {
             get {
                 object obj = ResourceManager.GetObject("CreateElementsSet", resourceCulture);
@@ -96,6 +106,16 @@ namespace dotbimGH.Properties {
         internal static System.Drawing.Bitmap CreateInfo {
             get {
                 object obj = ResourceManager.GetObject("CreateInfo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CreateSimpleElement {
+            get {
+                object obj = ResourceManager.GetObject("CreateSimpleElement", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

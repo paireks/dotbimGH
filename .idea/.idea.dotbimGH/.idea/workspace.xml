@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="WIP Simplifing element creation">
+      <change afterPath="$PROJECT_DIR$/TestsInsideGH/SimpleElements.bim" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestsInsideGH/SimpleElements.gh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dotbimGH/Resources/CreateElement.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dotbimGH/Resources/CreateSimpleElement.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestsInsideGH/BricksRotated.bim" beforeDir="false" afterPath="$PROJECT_DIR$/TestsInsideGH/BricksRotated.bim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestsInsideGH/BricksRotated.gh" beforeDir="false" afterPath="$PROJECT_DIR$/TestsInsideGH/BricksRotated.gh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestsInsideGH/MultipleMeshes.gh" beforeDir="false" afterPath="$PROJECT_DIR$/TestsInsideGH/MultipleMeshes.gh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestsInsideGH/Teapot.gh" beforeDir="false" afterPath="$PROJECT_DIR$/TestsInsideGH/Teapot.gh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/CreateElementGh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/CreateElementGh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/CreateElementSetGh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/CreateElementSetGh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/CreateSimpleElementGh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/CreateSimpleElementGh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Properties/Resources.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/dotbimGH.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/dotbimGH.csproj" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/dotbimGH/Tools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dotbimGH/DotbimGHInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GVN9RihXGBiZ9sCli4HBaFIV3I" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="" />
+      <created>1666469651682</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666469651682</updated>
+      <workItem from="1666469655847" duration="3988000" />
+      <workItem from="1666634856477" duration="2421000" />
+      <workItem from="1666718951034" duration="5603000" />
+    </task>
+    <task id="LOCAL-00001" summary="Fixing references and csproj">
+      <created>1666470460441</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666470460442</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Version to 1.1.0">
+      <created>1666470522292</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666470522292</updated>
+    </task>
+    <task id="LOCAL-00003" summary="WIP Simplifing element creation">
+      <created>1666723920579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666723920579</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop/1_1_0" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Fixing references and csproj" />
+    <MESSAGE value="Version to 1.1.0" />
+    <MESSAGE value="WIP Simplifing element creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP Simplifing element creation" />
+  </component>
+</project>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using dotbim;
+using dotbimGH.Interfaces;
 using Grasshopper.Kernel;
 
 namespace dotbimGH.Components
@@ -14,7 +15,7 @@ namespace dotbimGH.Components
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Elements Sets", "Elements Sets", "Elements Sets to place in file", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Elements Sets or Elements", "Elements Sets or Elements", "Elements Sets and Elements to place in file", GH_ParamAccess.list);
             pManager.AddGenericParameter("Info", "Info", "Information about file", GH_ParamAccess.item);
             pManager.AddTextParameter("Path", "Path", "Path to file, should end up with .bim", GH_ParamAccess.item);
         }
@@ -26,15 +27,15 @@ namespace dotbimGH.Components
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            List<BimElementSet> bimElementSets = new List<BimElementSet>();
+            List<IElementSetConvertable> elementSetConvertables = new List<IElementSetConvertable>();
             Dictionary<string, string> info = null;
             string path = string.Empty;
             
-            DA.GetDataList(0, bimElementSets);
+            DA.GetDataList(0, elementSetConvertables);
             DA.GetData(1, ref info);
             DA.GetData(2, ref path);
-            
-            File file = Tools.CreateFile(bimElementSets, info);
+
+            File file = Tools.CreateFile(elementSetConvertables, info);
             file.Save(path);
         }
 
@@ -48,7 +49,7 @@ namespace dotbimGH.Components
 
         public override Guid ComponentGuid
         {
-            get { return new Guid("2e9723cf-a0e5-4ec5-b229-e6ab673032a5"); }
+            get { return new Guid("ea80e5c1-79f5-463d-bd9c-6d315577c746"); }
         }
     }
 }

@@ -6,10 +6,10 @@ using Rhino.Geometry;
 
 namespace dotbimGH.Components
 {
-    public class CreateElementsGh : GH_Component
+    public class CreateElementSetGh : GH_Component
     {
-        public CreateElementsGh()
-            : base("Create Elements Set", "Create Elements Set", "Create Elements Set", "dotbim", "Create File")
+        public CreateElementSetGh()
+            : base("Create Elements Set", "Create Elements Set", "Create Elements Set", "dotbim", "Create Elements")
         {
         }
 
