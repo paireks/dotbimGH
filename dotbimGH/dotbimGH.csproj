@@ -61,10 +61,12 @@
       </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
+      <Content Include="Resources\CreateElement.png" />
       <Content Include="Resources\CreateElementsSet.png" />
       <Content Include="Resources\CreateFile.png" />
       <Content Include="Resources\CreateGuid.png" />
       <Content Include="Resources\CreateInfo.png" />
+      <Content Include="Resources\CreateSimpleElement.png" />
       <Content Include="Resources\DeconstructElementsSet.png" />
       <Content Include="Resources\DeconstructFile.png" />
       <Content Include="Resources\DeconstructInfo.png" />

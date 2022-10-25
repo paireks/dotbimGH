@@ -9,7 +9,7 @@ namespace dotbimGH.Components
     public class CreateElementGh : GH_Component
     {
         public CreateElementGh()
-            : base("Create Element", "Create Element", "Creates Element", "dotbim", "Create File")
+            : base("Create Element", "Create Element", "Creates Element", "dotbim", "Create Elements")
         {
         }
 
@@ -52,7 +52,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return null;
+                return Properties.Resources.CreateElement;
             }
         }
 
