@@ -178,11 +178,46 @@ namespace dotbimGH
                 Transform rotationTransform = Transform.PlaneToPlane(Plane.WorldXY, insertPlane);
                 meshReferenced.Transform(rotationTransform);
                 meshReferenced.Transform(moveTransform);
-                meshReferenced.VertexColors.CreateMonotoneMesh(CreateColorFromBimColor(bimElement.Color));
+                if (bimElement.FaceColors == null) 
+                {
+                    meshReferenced.VertexColors.CreateMonotoneMesh(CreateColorFromBimColor(bimElement.Color));
+                }
+                else
+                {
+                    meshReferenced.VertexColors.CreateMonotoneMesh(CreateColorFromBimColor(bimElement.Color));
+                    List<System.Drawing.Color> colors = GetFacesColor(bimElement);
+                    meshReferenced.Unweld(0, false);
+                    for (var i = 0; i < meshReferenced.Faces.Count; i++)
+                    {
+                        meshReferenced.VertexColors.SetColor(meshReferenced.Faces[i], colors[i]);
+                    }
+                }
                 meshes.Add(meshReferenced);
             }
 
             return meshes;
+        }
+
+        private static List<System.Drawing.Color> GetFacesColor(Element bimElement)
+        {
+            if (bimElement.FaceColors == null) 
+            {
+                throw new ArgumentException("There is no faces color in Element");
+            }
+
+            if (bimElement.FaceColors.Count == 0)
+            {
+                throw new ArgumentException("Cannot get face colors from empty list");
+            }
+
+            List<System.Drawing.Color> colors = new List<System.Drawing.Color>();
+            for (int i = 0; i < bimElement.FaceColors.Count; i+=4)
+            {
+                colors.Add(System.Drawing.Color.FromArgb(bimElement.FaceColors[i+3],
+                    bimElement.FaceColors[i], bimElement.FaceColors[i+1], bimElement.FaceColors[i+2]));
+            }
+
+            return colors;
         }
     }
 }
