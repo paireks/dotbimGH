@@ -73,8 +73,8 @@
       <Content Include="Resources\ReadFile.png" />
     </ItemGroup>
     <ItemGroup>
-      <Reference Include="dotbim, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-        <HintPath>..\packages\dotbim.1.0.0\lib\net472\dotbim.dll</HintPath>
+      <Reference Include="dotbim, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>..\packages\dotbim.1.1.0\lib\net40\dotbim.dll</HintPath>
         <Private>True</Private>
       </Reference>
       <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530">
@@ -105,6 +105,7 @@
       <Reference Include="System.Drawing" />
     </ItemGroup>
     <ItemGroup>
+      <None Include="App.config" />
       <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
