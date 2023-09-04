@@ -68,6 +68,7 @@
       <Content Include="Resources\CreateGuid.png" />
       <Content Include="Resources\CreateInfo.png" />
       <Content Include="Resources\CreateSimpleElement.png" />
+      <Content Include="Resources\CreateSimpleElementsSet.png" />
       <Content Include="Resources\DeconstructElementsSet.png" />
       <Content Include="Resources\DeconstructFile.png" />
       <Content Include="Resources\DeconstructInfo.png" />

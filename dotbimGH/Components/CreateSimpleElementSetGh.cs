@@ -51,7 +51,7 @@ namespace dotbimGH.Components
         {
             get
             {
-                return Properties.Resources.CreateElementsSet;
+                return Properties.Resources.CreateSimpleElementsSet;
             }
         }
 
