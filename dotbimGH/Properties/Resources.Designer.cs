@@ -62,6 +62,16 @@ namespace dotbimGH.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BakeFile {
+            get {
+                object obj = ResourceManager.GetObject("BakeFile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap CreateElement {
             get {
                 object obj = ResourceManager.GetObject("CreateElement", resourceCulture);
