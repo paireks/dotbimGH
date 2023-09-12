@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
-using dotbimGH.Interfaces;
+﻿using dotbimGH.Interfaces;
 using Rhino.Geometry;
+using System.Collections.Generic;
+using System.Drawing;
 using Mesh = Rhino.Geometry.Mesh;
 
 namespace dotbimGH
@@ -17,7 +17,7 @@ namespace dotbimGH
             Info = info;
             PreviewMesh = CreatePreviewMesh();
         }
-        
+
         public BimElement(Mesh mesh, string guid, string type, Color color, Dictionary<string, string> info)
         {
             Mesh = mesh;
@@ -30,17 +30,17 @@ namespace dotbimGH
 
         public BimElementSet ToElementSet()
         {
-            return new BimElementSet(Mesh, new List<Plane> {Plane.WorldXY}, new List<string> {Guid},
-                new List<string> {Type}, new List<Color> {Color}, new List<Dictionary<string, string>> {Info});
+            return new BimElementSet(Mesh, new List<Plane> { Plane.WorldXY }, new List<string> { Guid },
+                new List<string> { Type }, new List<Color> { Color }, new List<Dictionary<string, string>> { Info });
         }
-        
+
         private Mesh CreatePreviewMesh()
         {
             Mesh previewMesh = Mesh.DuplicateMesh();
             previewMesh.VertexColors.CreateMonotoneMesh(Color);
             return previewMesh;
         }
-        
+
         public Mesh Mesh { get; }
         public string Guid { get; }
         public string Type { get; }

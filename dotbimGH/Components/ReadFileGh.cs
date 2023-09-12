@@ -1,6 +1,6 @@
-﻿using System;
-using dotbim;
+﻿using dotbim;
 using Grasshopper.Kernel;
+using System;
 
 namespace dotbimGH.Components
 {

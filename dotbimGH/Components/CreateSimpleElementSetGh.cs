@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Grasshopper.Kernel;
+using Rhino.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using Grasshopper.Kernel;
-using Rhino.Geometry;
 
 namespace dotbimGH.Components
 {
@@ -42,7 +42,7 @@ namespace dotbimGH.Components
             DA.GetData(4, ref info);
 
             BimElementSet bimElementSet = new BimElementSet(mesh, insertPlanes, type, color, info);
-                
+
             DA.SetData(0, bimElementSet);
             DA.SetDataList(1, bimElementSet.PreviewMeshes);
         }
