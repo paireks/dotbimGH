@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="Update for simple elements and tests">
+    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="Add example file with logo">
+      <change afterPath="$PROJECT_DIR$/dotbimGH/Resources/BakeFile.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/BakeElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/BakeFile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Properties/Resources.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/dotbimGH.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/dotbimGH.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,14 +25,39 @@
     </option>
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN"
+    }
+  ],
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="29399cc2-9b45-461d-8e49-76d1e69e6e53" />
+        <option name="url" value="https://github.com/paireks/dotbimGH.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/dotbimGH/Tools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Components/CreateSimpleElementSetGh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/DotbimGHInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Properties/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Properties/Resources.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/dotbimGH/Tools.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2GVN9RihXGBiZ9sCli4HBaFIV3I" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -33,13 +66,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\pc\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\pc\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
+      "C:\\Users\\pc\\AppData\\Local\\Symbols\\src"
+    ]
+  }
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -51,6 +96,9 @@
       <workItem from="1666469655847" duration="3988000" />
       <workItem from="1666634856477" duration="2421000" />
       <workItem from="1666718951034" duration="6660000" />
+      <workItem from="1693654857110" duration="3287000" />
+      <workItem from="1693858021593" duration="2633000" />
+      <workItem from="1694541108874" duration="1231000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing references and csproj">
       <created>1666470460441</created>
@@ -80,7 +128,67 @@
       <option name="project" value="LOCAL" />
       <updated>1666727065863</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update NuGet version">
+      <created>1675884526932</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675884526932</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update face_colors display">
+      <created>1675889741240</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675889741240</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update test files">
+      <created>1675890924130</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675890924130</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Version to 1.2.0">
+      <created>1675891071983</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1675891071983</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add SimpleElementsSet.gh">
+      <option name="closed" value="true" />
+      <created>1693657987932</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693657987932</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add icon for new component">
+      <option name="closed" value="true" />
+      <created>1693858774057</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693858774057</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update license date and upgrade version">
+      <option name="closed" value="true" />
+      <created>1693859098095</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1693859098095</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add example file with logo">
+      <option name="closed" value="true" />
+      <created>1693862178166</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1693862178166</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,7 +208,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop/1_1_0" />
+                        <option value="seghier_master" />
                       </list>
                     </value>
                   </entry>
@@ -118,6 +226,14 @@
     <MESSAGE value="Version to 1.1.0" />
     <MESSAGE value="WIP Simplifing element creation" />
     <MESSAGE value="Update for simple elements and tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update for simple elements and tests" />
+    <MESSAGE value="Update NuGet version" />
+    <MESSAGE value="Update face_colors display" />
+    <MESSAGE value="Update test files" />
+    <MESSAGE value="Version to 1.2.0" />
+    <MESSAGE value="Add SimpleElementsSet.gh" />
+    <MESSAGE value="Add icon for new component" />
+    <MESSAGE value="Update license date and upgrade version" />
+    <MESSAGE value="Add example file with logo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add example file with logo" />
   </component>
 </project>
