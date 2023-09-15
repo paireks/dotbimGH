@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using dotbim;
+﻿using dotbim;
 using dotbimGH.Interfaces;
 using Grasshopper.Kernel;
+using System;
+using System.Collections.Generic;
 
 namespace dotbimGH.Components
 {
@@ -22,7 +22,7 @@ namespace dotbimGH.Components
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            
+
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -30,7 +30,7 @@ namespace dotbimGH.Components
             List<IElementSetConvertable> elementSetConvertables = new List<IElementSetConvertable>();
             Dictionary<string, string> info = null;
             string path = string.Empty;
-            
+
             DA.GetDataList(0, elementSetConvertables);
             DA.GetData(1, ref info);
             DA.GetData(2, ref path);

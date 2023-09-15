@@ -1,8 +1,8 @@
-﻿using System;
+﻿using dotbimGH.Interfaces;
+using Rhino.Geometry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using dotbimGH.Interfaces;
-using Rhino.Geometry;
 using Mesh = Rhino.Geometry.Mesh;
 
 namespace dotbimGH
@@ -32,16 +32,16 @@ namespace dotbimGH
             Infos = insertPlanes.Select(unused => info).ToList();
             PreviewMeshes = CreatePreviewMeshes();
         }
-        
+
         public BimElementSet ToElementSet()
         {
             return this;
         }
-        
+
         private List<Mesh> CreatePreviewMeshes()
         {
             List<Mesh> previewMeshes = new List<Mesh>();
-            
+
             for (int i = 0; i < InsertPlanes.Count; i++)
             {
                 Mesh previewMesh = Mesh.DuplicateMesh();
@@ -52,7 +52,7 @@ namespace dotbimGH
 
             return previewMeshes;
         }
-        
+
         public Mesh Mesh { get; }
         public List<Plane> InsertPlanes { get; }
         public List<string> Guids { get; }

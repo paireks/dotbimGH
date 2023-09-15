@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using dotbim;
+﻿using dotbim;
 using dotbimGH.Interfaces;
 using Rhino.Geometry;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Mesh = Rhino.Geometry.Mesh;
 
 namespace dotbimGH
@@ -13,14 +13,14 @@ namespace dotbimGH
         private static Mesh CreateRhinoMeshFromBimMesh(dotbim.Mesh bimMesh)
         {
             Mesh mesh = new Mesh();
-            for (int i = 0; i < bimMesh.Coordinates.Count; i+=3)
+            for (int i = 0; i < bimMesh.Coordinates.Count; i += 3)
             {
-                mesh.Vertices.Add(bimMesh.Coordinates[i], bimMesh.Coordinates[i+1], bimMesh.Coordinates[i+2]);
+                mesh.Vertices.Add(bimMesh.Coordinates[i], bimMesh.Coordinates[i + 1], bimMesh.Coordinates[i + 2]);
             }
-            
-            for (int i = 0; i < bimMesh.Indices.Count; i+=3)
+
+            for (int i = 0; i < bimMesh.Indices.Count; i += 3)
             {
-                mesh.Faces.AddFace(bimMesh.Indices[i], bimMesh.Indices[i+1], bimMesh.Indices[i+2]);
+                mesh.Faces.AddFace(bimMesh.Indices[i], bimMesh.Indices[i + 1], bimMesh.Indices[i + 2]);
             }
 
             mesh.Normals.ComputeNormals();
@@ -119,13 +119,13 @@ namespace dotbimGH
                         Info = bimElementSet.Infos[i],
                         Type = bimElementSet.Types[i]
                     };
-                    
+
                     elements.Add(element);
                 }
 
                 currentMeshId += 1;
             }
-            
+
             File file = new File
             {
                 SchemaVersion = "1.0.0",
@@ -141,8 +141,8 @@ namespace dotbimGH
         {
             var p1 = Plane.WorldXY.Origin;
             var p2 = plane.Origin;
-            
-            return new Vector{X = p2.X - p1.X, Y = p2.Y - p1.Y, Z = p2.Z - p1.Z};
+
+            return new Vector { X = p2.X - p1.X, Y = p2.Y - p1.Y, Z = p2.Z - p1.Z };
         }
 
         private static Rotation ConvertInsertPlaneToRotation(Plane plane)
@@ -150,13 +150,13 @@ namespace dotbimGH
             Quaternion quaternion = new Quaternion();
             quaternion.SetRotation(Plane.WorldXY, plane);
 
-            return new Rotation{Qx = quaternion.B, Qy = quaternion.C, Qz = quaternion.D, Qw = quaternion.A};
+            return new Rotation { Qx = quaternion.B, Qy = quaternion.C, Qz = quaternion.D, Qw = quaternion.A };
         }
 
         private static void IsQuaternionAccepted(Quaternion quaternion)
         {
             double tolerance = 0.001;
-            if (quaternion.A-tolerance <= 0 && quaternion.B-tolerance <= 0 && quaternion.C-tolerance <= 0 && quaternion.D-tolerance <= 0)
+            if (quaternion.A - tolerance <= 0 && quaternion.B - tolerance <= 0 && quaternion.C - tolerance <= 0 && quaternion.D - tolerance <= 0)
             {
                 throw new ArgumentException("Quaternion with all values as 0 are not supported.");
             }
@@ -170,15 +170,16 @@ namespace dotbimGH
             {
                 var bimMeshReferenced = bimMeshes.First(t => t.MeshId == bimElement.MeshId);
                 Mesh meshReferenced = CreateRhinoMeshFromBimMesh(bimMeshReferenced);
-                
+                var insertPlane = Plane.Unset;
+
                 Transform moveTransform = Transform.Translation(bimElement.Vector.X, bimElement.Vector.Y, bimElement.Vector.Z);
                 Quaternion quaternion = new Quaternion(bimElement.Rotation.Qw, bimElement.Rotation.Qx, bimElement.Rotation.Qy, bimElement.Rotation.Qz);
                 IsQuaternionAccepted(quaternion);
-                quaternion.GetRotation(out var insertPlane);
+                quaternion.GetRotation(out insertPlane);
                 Transform rotationTransform = Transform.PlaneToPlane(Plane.WorldXY, insertPlane);
                 meshReferenced.Transform(rotationTransform);
                 meshReferenced.Transform(moveTransform);
-                if (bimElement.FaceColors == null) 
+                if (bimElement.FaceColors == null)
                 {
                     meshReferenced.VertexColors.CreateMonotoneMesh(CreateColorFromBimColor(bimElement.Color));
                 }
@@ -200,7 +201,7 @@ namespace dotbimGH
 
         private static List<System.Drawing.Color> GetFacesColor(Element bimElement)
         {
-            if (bimElement.FaceColors == null) 
+            if (bimElement.FaceColors == null)
             {
                 throw new ArgumentException("There is no faces color in Element");
             }
@@ -211,10 +212,10 @@ namespace dotbimGH
             }
 
             List<System.Drawing.Color> colors = new List<System.Drawing.Color>();
-            for (int i = 0; i < bimElement.FaceColors.Count; i+=4)
+            for (int i = 0; i < bimElement.FaceColors.Count; i += 4)
             {
-                colors.Add(System.Drawing.Color.FromArgb(bimElement.FaceColors[i+3],
-                    bimElement.FaceColors[i], bimElement.FaceColors[i+1], bimElement.FaceColors[i+2]));
+                colors.Add(System.Drawing.Color.FromArgb(bimElement.FaceColors[i + 3],
+                    bimElement.FaceColors[i], bimElement.FaceColors[i + 1], bimElement.FaceColors[i + 2]));
             }
 
             return colors;
