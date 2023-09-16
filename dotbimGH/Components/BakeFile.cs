@@ -1,6 +1,7 @@
 ﻿using Grasshopper.Kernel;
 using System;
 
+
 namespace dotbimGH.Components
 {
     public class BakeFile : GH_Component
@@ -81,6 +82,8 @@ namespace dotbimGH.Components
                 return Properties.Resources.BakeFile;
             }
         }
+
+        public override bool IsBakeCapable => base.IsBakeCapable;
 
         public override Guid ComponentGuid
         {

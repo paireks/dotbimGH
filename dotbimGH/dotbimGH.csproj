@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="BimElement.cs" />
     <Compile Include="BimElementSet.cs" />
-    <Compile Include="Components\AssignMat.cs" />
+    <Compile Include="Components\BakeWithMat.cs" />
     <Compile Include="Components\BakeFile.cs" />
     <Compile Include="Components\CreateElementGh.cs" />
     <Compile Include="Components\CreateElementSetGh.cs" />

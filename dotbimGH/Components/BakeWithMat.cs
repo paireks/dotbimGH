@@ -1,4 +1,5 @@
 ﻿using Grasshopper.Kernel;
+using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
@@ -6,37 +7,39 @@ using System.Drawing;
 
 namespace dotbimGH.Components
 {
-    public class AssignMat : GH_Component
+    public class BakeWithMat : GH_Component
     {
+
         private Dictionary<Color, Rhino.Render.RenderMaterial> materialCache = new Dictionary<Color, Rhino.Render.RenderMaterial>();
 
-        public AssignMat()
-            : base("Assign Material", "Assign Material", "Separate meshes by color and Assign Material", "dotbim", "Bake")
+        public BakeWithMat()
+            : base("Bake With Material", "Bake With Material", "Separate meshes by color and Assign Material", "dotbim", "Bake")
         {
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddMeshParameter("Mesh", "Mesh", "Mesh from Element Geometry", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Bake", "Bake", "Add Meshes with material to RhinoDoc", GH_ParamAccess.item, false);
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Result", "Result", "Resulting meshes", GH_ParamAccess.list);
-            pManager.HideParameter(0);
-            pManager.AddGenericParameter("Mat", "Mat", "Mat: xml", GH_ParamAccess.list);
+
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             Mesh mesh = null;
+            bool bake = false;
 
             DA.GetData(0, ref mesh);
+            DA.GetData(1, ref bake);
 
             List<Color> colors = new List<Color>();
-            List<string> materials = new List<string>();
 
             Dictionary<Color, List<int>> colorIndices = new Dictionary<Color, List<int>>();
+            var doc = Rhino.RhinoDoc.ActiveDoc;
 
             if (mesh == null) return;
 
@@ -53,39 +56,63 @@ namespace dotbimGH.Components
                 colorIndices[color].Add(i);
             }
 
-            List<Mesh> mergedMeshes = new List<Mesh>();
-
-            foreach (var kvp in colorIndices)
+            if (bake)
             {
-                Color color = kvp.Key;
-                List<int> indices = kvp.Value;
-
-                Mesh mergedMesh = new Mesh();
-                Rhino.Render.RenderMaterial mat;
-
-                // Check if the material is already cached
-                if (materialCache.ContainsKey(color))
+                foreach (var kvp in colorIndices)
                 {
-                    mat = materialCache[color];
-                }
-                else
-                {
-                    mat = AddMat(0, color); // You may need to adjust the material ID (0 in this example)
-                    materialCache[color] = mat; // Cache the material for reuse
-                }
+                    Color color = kvp.Key;
+                    List<int> indices = kvp.Value;
 
-                foreach (int i in indices)
-                {
-                    var meshF = MeshFacetoMesh(mesh.Faces[i], mesh);
-                    meshF.VertexColors.CreateMonotoneMesh(color);
-                    mergedMesh.Append(meshF);
-                }
+                    Mesh mergedMesh = new Mesh();
+                    Rhino.Render.RenderMaterial mat;
 
-                mergedMeshes.Add(mergedMesh);
-                materials.Add(mat.Xml);
+                    // Check if the material is already cached
+                    if (materialCache.ContainsKey(color))
+                    {
+                        mat = materialCache[color];
+                    }
+                    else
+                    {
+                        mat = CreateMat(0, color); // You may need to adjust the material ID (0 in this example)
+                        materialCache[color] = mat; // Cache the material for reuse
+                    }
+
+                    foreach (int i in indices)
+                    {
+                        var meshF = MeshFacetoMesh(mesh.Faces[i], mesh);
+                        meshF.VertexColors.CreateMonotoneMesh(color);
+                        mergedMesh.Append(meshF);
+                    }
+                    doc.RenderMaterials.Add(mat);
+
+                    Bake(mergedMesh, mat, doc);
+                }
             }
-            DA.SetDataList(0, mergedMeshes);
-            DA.SetDataList(1, materials);
+        }
+
+        void Bake(Mesh mesh, Rhino.Render.RenderMaterial mat, Rhino.RhinoDoc doc)
+        {
+            GH_Document gh_doc = Grasshopper.Instances.ActiveCanvas.Document;
+            GH_BakeUtility bakeUtility = new GH_BakeUtility(gh_doc);
+            try
+            {
+                var attributes = new Rhino.DocObjects.ObjectAttributes
+                {
+                    RenderMaterial = mat
+                };
+
+                IGH_GeometricGoo convertedMesh = null;
+                if (mesh.IsValid)
+                {
+                    convertedMesh = GH_Convert.ToGeometricGoo(mesh);
+                }
+                bakeUtility.BakeObject(convertedMesh, attributes, doc);
+
+            }
+            catch (Exception ex)
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, $"Error baking the Mesh: {ex.Message}");
+            }
         }
 
         Mesh MeshFacetoMesh(MeshFace faceToConvert, Mesh originalMesh)
@@ -108,7 +135,7 @@ namespace dotbimGH.Components
             return convertedMesh;
         }
 
-        Rhino.Render.RenderMaterial AddMat(int id, Color color)
+        Rhino.Render.RenderMaterial CreateMat(int id, Color color)
         {
             double transp = (double)color.A / 255;
 
