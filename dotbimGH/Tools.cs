@@ -193,6 +193,7 @@ namespace dotbimGH
                         meshReferenced.VertexColors.SetColor(meshReferenced.Faces[i], colors[i]);
                     }
                 }
+
                 meshes.Add(meshReferenced);
             }
 

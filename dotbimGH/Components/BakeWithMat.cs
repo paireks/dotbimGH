@@ -10,7 +10,8 @@ namespace dotbimGH.Components
     public class BakeWithMat : GH_Component
     {
 
-        private Dictionary<Color, Rhino.Render.RenderMaterial> materialCache = new Dictionary<Color, Rhino.Render.RenderMaterial>();
+        private Dictionary<(Color, string), Rhino.Render.RenderMaterial> materialCache = new Dictionary<(Color, string), Rhino.Render.RenderMaterial>();
+        private Dictionary<(Color, string), int> layerCache = new Dictionary<(Color, string), int>();
 
         public BakeWithMat()
             : base("Bake With Material", "Bake With Material", "Separate meshes by color and Assign Material", "dotbim", "Bake")
@@ -20,26 +21,35 @@ namespace dotbimGH.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddMeshParameter("Mesh", "Mesh", "Mesh from Element Geometry", GH_ParamAccess.item);
+            pManager.AddTextParameter("Name", "Name", "Bim name used to create separate materials and layers/sublayers", GH_ParamAccess.item, "");
             pManager.AddBooleanParameter("Bake", "Bake", "Add Meshes with material to RhinoDoc", GH_ParamAccess.item, false);
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-
         }
-
+        
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             Mesh mesh = null;
+            string bimName = null;
             bool bake = false;
 
             DA.GetData(0, ref mesh);
-            DA.GetData(1, ref bake);
+            DA.GetData(1, ref bimName);
+            DA.GetData(2, ref bake);
 
             List<Color> colors = new List<Color>();
 
             Dictionary<Color, List<int>> colorIndices = new Dictionary<Color, List<int>>();
             var doc = Rhino.RhinoDoc.ActiveDoc;
+
+
+            if (string.IsNullOrEmpty(bimName))
+            {
+                //bimName = "BimLayer";
+                return;
+            }
 
             if (mesh == null) return;
 
@@ -56,25 +66,61 @@ namespace dotbimGH.Components
                 colorIndices[color].Add(i);
             }
 
-            if (bake)
+            foreach (var kvp in colorIndices)
             {
-                foreach (var kvp in colorIndices)
+                Color color = kvp.Key;
+                List<int> indices = kvp.Value;
+                Mesh mergedMesh = new Mesh();
+                Rhino.Render.RenderMaterial mat;
+                int layerIndex;
+
+                // Create a composite key using both color and bimName
+                var compositeKey = (color, bimName);
+
+                // Check if the material is already cached
+                if (materialCache.ContainsKey(compositeKey))
                 {
-                    Color color = kvp.Key;
-                    List<int> indices = kvp.Value;
+                    mat = materialCache[compositeKey];
+                }
+                else
+                {
+                    mat = CreateMat(color, bimName);
+                    materialCache[compositeKey] = mat;
+                }
 
-                    Mesh mergedMesh = new Mesh();
-                    Rhino.Render.RenderMaterial mat;
+                if (bake)
+                {
+                    doc.RenderMaterials.Add(mat);
 
-                    // Check if the material is already cached
-                    if (materialCache.ContainsKey(color))
+                    // Check if the layer is already cached
+                    if (layerCache.ContainsKey(compositeKey))
                     {
-                        mat = materialCache[color];
+                        layerIndex = layerCache[compositeKey];
                     }
                     else
                     {
-                        mat = CreateMat(0, color); // You may need to adjust the material ID (0 in this example)
-                        materialCache[color] = mat; // Cache the material for reuse
+                        // Find the parent layer "bimLayer" or create it if it doesn't exist
+                        Rhino.DocObjects.Layer parentLayer = doc.Layers.FindName(bimName);
+                        int parentLayerIndex;
+
+                        if (parentLayer != null)
+                        {
+                            parentLayerIndex = parentLayer.Index;
+                        }
+                        else
+                        {
+                            parentLayerIndex = doc.Layers.Add(bimName, System.Drawing.Color.Black);
+                        }
+
+                        // Create a child layer under the parent layer
+                        string layerName = $"{bimName}_{mat.Name}";
+                        int childLayerIndex = doc.Layers.Add(layerName, color);
+                        doc.Layers[childLayerIndex].ParentLayerId = doc.Layers[parentLayerIndex].Id;
+
+                        // Cache the child layer index
+                        layerCache[compositeKey] = childLayerIndex;
+
+                        layerIndex = childLayerIndex;
                     }
 
                     foreach (int i in indices)
@@ -83,14 +129,28 @@ namespace dotbimGH.Components
                         meshF.VertexColors.CreateMonotoneMesh(color);
                         mergedMesh.Append(meshF);
                     }
-                    doc.RenderMaterials.Add(mat);
 
-                    Bake(mergedMesh, mat, doc);
+                    Bake(mergedMesh, mat, doc, layerIndex);
                 }
             }
         }
 
-        void Bake(Mesh mesh, Rhino.Render.RenderMaterial mat, Rhino.RhinoDoc doc)
+        // this can be used to create group names
+        string FindUniqueParentLayerName(Rhino.RhinoDoc doc, string baseName)
+        {
+            int suffix = 1;
+            string uniqueName = baseName;
+
+            while (doc.Layers.FindName(uniqueName) != null)
+            {
+                uniqueName = $"{baseName}_{suffix:D2}";
+                suffix++;
+            }
+
+            return uniqueName;
+        }
+
+        void Bake(Mesh mesh, Rhino.Render.RenderMaterial mat, Rhino.RhinoDoc doc, int layerIndex)
         {
             GH_Document gh_doc = Grasshopper.Instances.ActiveCanvas.Document;
             GH_BakeUtility bakeUtility = new GH_BakeUtility(gh_doc);
@@ -98,7 +158,8 @@ namespace dotbimGH.Components
             {
                 var attributes = new Rhino.DocObjects.ObjectAttributes
                 {
-                    RenderMaterial = mat
+                    RenderMaterial = mat,
+                    LayerIndex = layerIndex
                 };
 
                 IGH_GeometricGoo convertedMesh = null;
@@ -135,14 +196,14 @@ namespace dotbimGH.Components
             return convertedMesh;
         }
 
-        Rhino.Render.RenderMaterial CreateMat(int id, Color color)
+        Rhino.Render.RenderMaterial CreateMat(Color color, string bimName)
         {
             double transp = (double)color.A / 255;
 
             var doc = Rhino.RhinoDoc.ActiveDoc;
             Rhino.DocObjects.Material material = Rhino.DocObjects.Material.DefaultMaterial;
 
-            material.Name = "bimMat_" + id.ToString();
+            material.Name = $"{bimName}_{"bimMat"}";
             material.DiffuseColor = color;
             material.Reflectivity = Math.Abs(0.95 - transp);
             material.ReflectionColor = System.Drawing.Color.LightGray;
@@ -169,6 +230,5 @@ namespace dotbimGH.Components
                 return new Guid("E456CAAD-9AAE-41CA-8FF5-05C585893447");
             }
         }
-
     }
 }
