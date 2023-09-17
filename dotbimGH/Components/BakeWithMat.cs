@@ -1,9 +1,11 @@
-﻿using Grasshopper.Kernel;
+﻿using GH_IO.Serialization;
+using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace dotbimGH.Components
 {
@@ -12,10 +14,24 @@ namespace dotbimGH.Components
 
         private Dictionary<(Color, string), Rhino.Render.RenderMaterial> materialCache = new Dictionary<(Color, string), Rhino.Render.RenderMaterial>();
         private Dictionary<(Color, string), int> layerCache = new Dictionary<(Color, string), int>();
+        private bool createLayer = false;
 
         public BakeWithMat()
             : base("Bake With Material", "Bake With Material", "Separate meshes by color and Assign Material", "dotbim", "Bake")
         {
+        }
+
+        public override void AppendAdditionalMenuItems(ToolStripDropDown menu)
+        {
+            base.AppendAdditionalMenuItems(menu);
+            Menu_AppendSeparator(menu);
+            ToolStripMenuItem setTrace = Menu_AppendItem(menu, "Create Layers", SetTraceImage, true, createLayer);
+        }
+
+        public void SetTraceImage(Object sender, EventArgs e)
+        {
+            createLayer = !createLayer;
+            ExpireSolution(true);
         }
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
@@ -28,7 +44,7 @@ namespace dotbimGH.Components
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
         }
-        
+
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             Mesh mesh = null;
@@ -72,7 +88,7 @@ namespace dotbimGH.Components
                 List<int> indices = kvp.Value;
                 Mesh mergedMesh = new Mesh();
                 Rhino.Render.RenderMaterial mat;
-                int layerIndex;
+                int layerIndex = -1;
 
                 // Create a composite key using both color and bimName
                 var compositeKey = (color, bimName);
@@ -93,36 +109,38 @@ namespace dotbimGH.Components
                     doc.RenderMaterials.Add(mat);
 
                     // Check if the layer is already cached
-                    if (layerCache.ContainsKey(compositeKey))
+                    if (createLayer)
                     {
-                        layerIndex = layerCache[compositeKey];
-                    }
-                    else
-                    {
-                        // Find the parent layer "bimLayer" or create it if it doesn't exist
-                        Rhino.DocObjects.Layer parentLayer = doc.Layers.FindName(bimName);
-                        int parentLayerIndex;
-
-                        if (parentLayer != null)
+                        if (layerCache.ContainsKey(compositeKey))
                         {
-                            parentLayerIndex = parentLayer.Index;
+                            layerIndex = layerCache[compositeKey];
                         }
                         else
                         {
-                            parentLayerIndex = doc.Layers.Add(bimName, System.Drawing.Color.Black);
+                            // Find the parent layer "bimLayer" or create it if it doesn't exist
+                            Rhino.DocObjects.Layer parentLayer = doc.Layers.FindName(bimName);
+                            int parentLayerIndex;
+
+                            if (parentLayer != null)
+                            {
+                                parentLayerIndex = parentLayer.Index;
+                            }
+                            else
+                            {
+                                parentLayerIndex = doc.Layers.Add(bimName, System.Drawing.Color.Black);
+                            }
+
+                            // Create a child layer under the parent layer
+                            string layerName = $"{bimName}_{mat.Name}";
+                            int childLayerIndex = doc.Layers.Add(layerName, color);
+                            doc.Layers[childLayerIndex].ParentLayerId = doc.Layers[parentLayerIndex].Id;
+
+                            // Cache the child layer index
+                            layerCache[compositeKey] = childLayerIndex;
+
+                            layerIndex = childLayerIndex;
                         }
-
-                        // Create a child layer under the parent layer
-                        string layerName = $"{bimName}_{mat.Name}";
-                        int childLayerIndex = doc.Layers.Add(layerName, color);
-                        doc.Layers[childLayerIndex].ParentLayerId = doc.Layers[parentLayerIndex].Id;
-
-                        // Cache the child layer index
-                        layerCache[compositeKey] = childLayerIndex;
-
-                        layerIndex = childLayerIndex;
                     }
-
                     foreach (int i in indices)
                     {
                         var meshF = MeshFacetoMesh(mesh.Faces[i], mesh);
@@ -130,7 +148,7 @@ namespace dotbimGH.Components
                         mergedMesh.Append(meshF);
                     }
 
-                    Bake(mergedMesh, mat, doc, layerIndex);
+                    Bake(mergedMesh, mat, doc, layerIndex, createLayer);
                 }
             }
         }
@@ -150,17 +168,23 @@ namespace dotbimGH.Components
             return uniqueName;
         }
 
-        void Bake(Mesh mesh, Rhino.Render.RenderMaterial mat, Rhino.RhinoDoc doc, int layerIndex)
+        void Bake(Mesh mesh, Rhino.Render.RenderMaterial mat, Rhino.RhinoDoc doc, int layerIndex, bool createLay)
         {
             GH_Document gh_doc = Grasshopper.Instances.ActiveCanvas.Document;
             GH_BakeUtility bakeUtility = new GH_BakeUtility(gh_doc);
+            var attributes = new Rhino.DocObjects.ObjectAttributes();
             try
             {
-                var attributes = new Rhino.DocObjects.ObjectAttributes
+                if (createLay)
                 {
-                    RenderMaterial = mat,
-                    LayerIndex = layerIndex
-                };
+                    attributes.RenderMaterial = mat;
+                    attributes.LayerIndex = layerIndex;
+                }
+
+                else
+                {
+                    attributes.RenderMaterial = mat;
+                }
 
                 IGH_GeometricGoo convertedMesh = null;
                 if (mesh.IsValid)
@@ -229,6 +253,20 @@ namespace dotbimGH.Components
             {
                 return new Guid("E456CAAD-9AAE-41CA-8FF5-05C585893447");
             }
+        }
+
+        public override bool Read(GH_IReader reader)
+        {
+            if (reader.ItemExists("CreateLayer"))
+                createLayer = reader.GetBoolean("CreateLayer");
+
+            return base.Read(reader);
+        }
+
+        public override bool Write(GH_IWriter writer)
+        {
+            writer.SetBoolean("CreateLayer", createLayer);
+            return base.Write(writer);
         }
     }
 }
