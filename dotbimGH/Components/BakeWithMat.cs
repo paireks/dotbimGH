@@ -25,7 +25,7 @@ namespace dotbimGH.Components
         {
             base.AppendAdditionalMenuItems(menu);
             Menu_AppendSeparator(menu);
-            ToolStripMenuItem setTrace = Menu_AppendItem(menu, "Create Layers", CreateLayerMenu, true, createLayer);
+            ToolStripMenuItem createLayerM = Menu_AppendItem(menu, "Create Layers", CreateLayerMenu, true, createLayer);
         }
 
         public void CreateLayerMenu(Object sender, EventArgs e)
