@@ -28,7 +28,7 @@ namespace dotbimGH.Components
             ToolStripMenuItem setTrace = Menu_AppendItem(menu, "Create Layers", SetTraceImage, true, createLayer);
         }
 
-        public void SetTraceImage(Object sender, EventArgs e)
+        public void CreateLayerMenu(Object sender, EventArgs e)
         {
             createLayer = !createLayer;
             ExpireSolution(true);
