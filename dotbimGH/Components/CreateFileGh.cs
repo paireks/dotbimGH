@@ -18,6 +18,7 @@ namespace dotbimGH.Components
             pManager.AddGenericParameter("Elements Sets or Elements", "Elements Sets or Elements", "Elements Sets and Elements to place in file", GH_ParamAccess.list);
             pManager.AddGenericParameter("Info", "Info", "Information about file", GH_ParamAccess.item);
             pManager.AddTextParameter("Path", "Path", "Path to file, should end up with .bim", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Format", "Format", "True = format file, false = without formatting", GH_ParamAccess.item, true);
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
@@ -30,13 +31,15 @@ namespace dotbimGH.Components
             List<IElementSetConvertable> elementSetConvertables = new List<IElementSetConvertable>();
             Dictionary<string, string> info = null;
             string path = string.Empty;
+            bool format = true;
             
             DA.GetDataList(0, elementSetConvertables);
             DA.GetData(1, ref info);
             DA.GetData(2, ref path);
+            DA.GetData(3, ref format);
 
             File file = Tools.CreateFile(elementSetConvertables, info);
-            file.Save(path);
+            file.Save(path, format);
         }
 
         protected override System.Drawing.Bitmap Icon

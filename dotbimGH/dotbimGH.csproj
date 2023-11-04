@@ -77,8 +77,8 @@
     <Content Include="Resources\ReadFile.png" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="dotbim, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\dotbim.1.1.1\lib\net40\dotbim.dll</HintPath>
+    <Reference Include="dotbim, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotbim.1.1.2\lib\net40\dotbim.dll</HintPath>
     </Reference>
     <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530">
       <HintPath>..\packages\RhinoCommon.6.24.20079.23341\lib\net45\Eto.dll</HintPath>
