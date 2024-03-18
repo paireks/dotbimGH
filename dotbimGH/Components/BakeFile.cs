@@ -60,7 +60,7 @@ namespace dotbimGH.Components
                             attributes.SetUserString(kvp.Key, kvp.Value);
                         }
 
-                        doc.Objects.Add(geo, attributes);
+                        doc.Objects.AddMesh(geo, attributes, null, false, false);
                     }
                 }
 
