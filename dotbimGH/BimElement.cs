@@ -8,6 +8,16 @@ namespace dotbimGH
 {
     public class BimElement : IElementSetConvertable
     {
+        public BimElement(Mesh mesh, string type, Color color)
+        {
+            Mesh = mesh;
+            Guid = System.Guid.NewGuid().ToString();
+            Type = type;
+            Color = color;
+            Info = new Dictionary<string, string>();
+            PreviewMesh = CreatePreviewMesh();
+        }
+        
         public BimElement(Mesh mesh, string type, Color color, Dictionary<string, string> info)
         {
             Mesh = mesh;

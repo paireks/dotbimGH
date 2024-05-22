@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="Add example file with logo">
-      <change afterPath="$PROJECT_DIR$/dotbimGH/Resources/BakeFile.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/BakeElement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/BakeFile.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dotbimGH/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Properties/Resources.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dotbimGH/dotbimGH.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/dotbimGH.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="Update and check tests" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,21 +13,21 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop/1_2_5" />
       </map>
     </option>
     <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN"
+      &quot;state&quot;: &quot;OPEN&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -44,10 +37,11 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Components/CreateSimpleElementSetGh.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/BimElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/BimElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Components/CreateElementGh.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/DotbimGHInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Properties/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Properties/Resources.Designer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/Tools.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -66,25 +60,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\pc\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
-      "C:\\Users\\pc\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
-      "C:\\Users\\pc\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\pc\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\pc\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\pc\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -99,6 +93,13 @@
       <workItem from="1693654857110" duration="3287000" />
       <workItem from="1693858021593" duration="2633000" />
       <workItem from="1694541108874" duration="1231000" />
+      <workItem from="1697047122474" duration="3445000" />
+      <workItem from="1697056494030" duration="744000" />
+      <workItem from="1698166308518" duration="1650000" />
+      <workItem from="1699120694839" duration="3775000" />
+      <workItem from="1710795274530" duration="2027000" />
+      <workItem from="1710874788121" duration="1416000" />
+      <workItem from="1716388910073" duration="4745000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing references and csproj">
       <created>1666470460441</created>
@@ -188,7 +189,111 @@
       <option name="project" value="LOCAL" />
       <updated>1693862178166</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update dependencies">
+      <option name="closed" value="true" />
+      <created>1698166524403</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1698166524403</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Version to 1.2.3">
+      <option name="closed" value="true" />
+      <created>1698166726719</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698166726719</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update nuget">
+      <option name="closed" value="true" />
+      <created>1699120799449</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699120799449</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add ability to create not formatted jsons">
+      <option name="closed" value="true" />
+      <created>1699125591180</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699125591180</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Version to 1.2.4">
+      <option name="closed" value="true" />
+      <created>1699125880542</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699125880542</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Allow baking invalid meshes">
+      <option name="closed" value="true" />
+      <created>1710795765656</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1710795765656</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Version to 1.2.5.0">
+      <option name="closed" value="true" />
+      <created>1710795870063</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1710795870063</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add CreateSimpleElementWithoutPropertiesGh">
+      <option name="closed" value="true" />
+      <created>1716389531684</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389531684</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add information about dotbimRH">
+      <option name="closed" value="true" />
+      <created>1716389735657</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389735657</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Change groups">
+      <option name="closed" value="true" />
+      <created>1716390720471</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716390720471</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Change icon for BakeFile">
+      <option name="closed" value="true" />
+      <created>1716391690667</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716391690667</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Version to 1.3.0.0">
+      <option name="closed" value="true" />
+      <created>1716392201141</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716392201141</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Update and check tests">
+      <option name="closed" value="true" />
+      <created>1716393976094</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716393976094</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +313,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="seghier_master" />
+                        <option value="develop/1_2_6" />
                       </list>
                     </value>
                   </entry>
@@ -234,6 +339,19 @@
     <MESSAGE value="Add icon for new component" />
     <MESSAGE value="Update license date and upgrade version" />
     <MESSAGE value="Add example file with logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add example file with logo" />
+    <MESSAGE value="Update dependencies" />
+    <MESSAGE value="Version to 1.2.3" />
+    <MESSAGE value="Update nuget" />
+    <MESSAGE value="Add ability to create not formatted jsons" />
+    <MESSAGE value="Version to 1.2.4" />
+    <MESSAGE value="Allow baking invalid meshes" />
+    <MESSAGE value="Version to 1.2.5.0" />
+    <MESSAGE value="Add CreateSimpleElementWithoutPropertiesGh" />
+    <MESSAGE value="Add information about dotbimRH" />
+    <MESSAGE value="Change groups" />
+    <MESSAGE value="Change icon for BakeFile" />
+    <MESSAGE value="Version to 1.3.0.0" />
+    <MESSAGE value="Update and check tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update and check tests" />
   </component>
 </project>

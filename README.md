@@ -6,3 +6,5 @@ Grasshopper plugin for dotbim.
 It allows to create .bim files and read .bim files using Grasshopper.
 
 Check out the main repository of dotbim files here: https://github.com/paireks/dotbim
+
+If you are looking for dotbimRH (Rhino version) check here: https://github.com/seghier/DotBimRHImportExport
