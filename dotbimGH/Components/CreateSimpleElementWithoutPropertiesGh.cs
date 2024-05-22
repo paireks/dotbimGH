@@ -8,7 +8,7 @@ namespace dotbimGH.Components
     public class CreateSimpleElementWithoutPropertiesGh : GH_Component
     {
         public CreateSimpleElementWithoutPropertiesGh()
-            : base("Create Simple Element Without Properties", "Create Simple Element Without Properties", "Create Simple Element Without Properties", "dotbim", "Create Elements")
+            : base("Create Simple Element Without Properties", "Create Simple Element Without Properties", "Create Simple Element Without Properties", "dotbim", "Create Element")
         {
         }
 

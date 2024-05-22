@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="Version to 1.2.5.0">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.dotbimGH/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="2a450ee7-ebd2-4635-b1b9-53aca2de4130" name="Changes" comment="Add information about dotbimRH">
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/CreateElementSetGh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/CreateElementSetGh.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dotbimGH/Components/CreateSimpleElementSetGh.cs" beforeDir="false" afterPath="$PROJECT_DIR$/dotbimGH/Components/CreateSimpleElementSetGh.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,9 +40,9 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Components/BakeFile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/BimElement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/BimElement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/DotbimGHInfo.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/pc/RiderProjects/dotbimGH/dotbimGH/Properties/AssemblyInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/Properties/Resources.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/dotbimGH/Tools.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -99,6 +100,7 @@
       <workItem from="1699120694839" duration="3775000" />
       <workItem from="1710795274530" duration="2027000" />
       <workItem from="1710874788121" duration="1416000" />
+      <workItem from="1716388910073" duration="889000" />
     </task>
     <task id="LOCAL-00001" summary="Fixing references and csproj">
       <created>1666470460441</created>
@@ -244,7 +246,23 @@
       <option name="project" value="LOCAL" />
       <updated>1710795870063</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add CreateSimpleElementWithoutPropertiesGh">
+      <option name="closed" value="true" />
+      <created>1716389531684</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389531684</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Add information about dotbimRH">
+      <option name="closed" value="true" />
+      <created>1716389735657</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1716389735657</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -297,6 +315,8 @@
     <MESSAGE value="Version to 1.2.4" />
     <MESSAGE value="Allow baking invalid meshes" />
     <MESSAGE value="Version to 1.2.5.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version to 1.2.5.0" />
+    <MESSAGE value="Add CreateSimpleElementWithoutPropertiesGh" />
+    <MESSAGE value="Add information about dotbimRH" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add information about dotbimRH" />
   </component>
 </project>

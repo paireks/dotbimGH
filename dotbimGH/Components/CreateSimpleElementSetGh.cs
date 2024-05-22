@@ -8,7 +8,7 @@ namespace dotbimGH.Components
 {
     public class CreateSimpleElementSetGh : GH_Component
     {
-        public CreateSimpleElementSetGh() : base("Create Simple Elements Set", "Create Simple Elements Set", "Create Simple Elements Set", "dotbim", "Create Elements")
+        public CreateSimpleElementSetGh() : base("Create Simple Elements Set", "Create Simple Elements Set", "Create Simple Elements Set", "dotbim", "Create Element Set")
         {
         }
 
